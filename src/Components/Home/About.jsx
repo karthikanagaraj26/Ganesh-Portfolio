@@ -80,7 +80,7 @@ const About = () => {
           position: "absolute",
           top: { xs: "10px", md: "40px" },
           left: 10,
-          width: { xs: 50, md: 80, lg: 150 },
+          width: { xs: 50, md: 80, lg: 80 },
           zIndex: 0,
         }}
       />
@@ -202,7 +202,7 @@ const About = () => {
                   backgroundColor: isActive ? "#6C63FF" : "#ffffff",
                   color: isActive ? "#fff" : "#000",
                   transition: "all 0.3s",
-                  height: "100%",
+                  height: "90%",
                   minHeight: 300,
                   "&:hover": {
                     transform: "translateY(-5px)",

@@ -14,24 +14,16 @@ import image from '../Images/12.png'; // Decorative image
 const educationData = [
   {
     institute: "Tamil Nadu Teacher Education University, Chennai",
-    degree: "Master of Education - MEd, Computer Science",
+    degree: "Master of Education (MEd) in Computer Science",
     duration: "Jul 2020 - Jun 2022",
   },
   {
-    institute: "Tamil Nadu Teacher Education University, Chennai",
-    degree: "Bachelor of Education - BEd, Computer Science",
-    duration: "Jul 2018 - Jun 2020",
-  },
-  {
-    institute: "University of Madras",
-    degree: "Diploma of Education, Diploma in School Education",
-    duration: "Sep 2010 - Aug 2011",
-  },
-  {
-    institute: "Sri Krishna Institute Of Technology",
-    degree: "Bachelor of Engineering - BE, Computer Science",
+    institute: "Sri Krishna Institute of Technology",
+    degree: "Bachelor of Engineering (BE) in Computer Science",
     duration: "Aug 2005 - Apr 2009",
   },
+ 
+ 
 ];
 
 const EducationSection = () => {
@@ -105,7 +97,7 @@ const EducationSection = () => {
 
 
       {/* Heading */}
-      <Box sx={{ textAlign: "center", mb: 6, position: "relative", zIndex: 1, 
+      <Box data-aos="fade-down" sx={{ textAlign: "center", mb: 6, position: "relative", zIndex: 1,  
     
       }}>
         <Typography  color="#6C63FF" fontWeight={550}sx={{fontSize:{md:'2.5rem',lg:'2.5rem',sm:'2rem',xs:'2rem'}}}>

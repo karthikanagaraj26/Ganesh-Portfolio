@@ -3,7 +3,8 @@ import React from 'react'
 import ExperienceSection from '../Components/Services/Experience'
 import Section from '../Components/Services/Services'
 import Header from '../Components/Header'
-import Footer from '../Components/Footer'
+
+import FooterSection from '../Components/Footer'
 
 function Services() {
   return (
@@ -11,7 +12,7 @@ function Services() {
         <Header/>
       <Section/>
       <ExperienceSection/>
-      <Footer/>
+      <FooterSection/>
     </Box>
   )
 }

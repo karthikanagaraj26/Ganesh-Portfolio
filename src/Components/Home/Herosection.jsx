@@ -74,40 +74,49 @@ const Herosection = () => {
       />
 
       {/* ✅ Curved Arrow (Responsive Positioning) */}
-      <Box
-        component="img"
-        src={curvedArrow}
-        alt="Curved Arrow"
-        data-aos="fade-down"
-        data-aos-delay="300"
-        sx={{
-          position: 'absolute',
-          top: { xs: '2%', sm: '3%', md:'8%', lg: '10%' },
-          left: {
-            xs: '75%',
-            sm: '70%',
-            md: '40%',
-          },
-          right: {
-            xs: 'unset',
-            sm: 'unset',
-            md: '45%',
-          },
-          transform: {
-            xs: 'translateX(-50%)',
-            sm: 'translateX(-50%)',
-            md: 'none',
-          },
-          width: {
-            xs: 100,
-            sm: 150,
-            md: 150,
-            lg:  200,
-            xl: 220,
-          },
-          zIndex: 1,
-        }}
-      />
+     <Box
+  className="arw"
+  component="img"
+  src={curvedArrow}
+  alt="Curved Arrow"
+  data-aos="fade-down"
+  data-aos-delay="300"
+  sx={{
+    display: {
+      xs: 'none',
+      sm: 'none',
+      md: 'none',
+      lg: 'block', // visible only on lg (1200px) and above
+    },
+    position: 'absolute',
+    top: { xs: '2%', sm: '3%', md: '8%', lg: '10%' },
+    left: {
+      xs: '79%',
+      sm: '70%',
+      md: '50%',
+      lg: '40%',
+    },
+    right: {
+      xs: 'unset',
+      sm: 'unset',
+      md: '40%',
+    },
+    transform: {
+      xs: 'translateX(-50%)',
+      sm: 'translateX(-50%)',
+      md: 'none',
+    },
+    width: {
+      xs: 100,
+      sm: 150,
+      md: 150,
+      lg: 200,
+      xl: 220,
+    },
+    zIndex: 1,
+  }}
+/>
+
 
       {/* 👉 Right bottom dotted line */}
       <Box
@@ -176,16 +185,16 @@ const Herosection = () => {
             xs={12}
             md={6}
             data-aos="fade-right"
-            textAlign={isSmallScreen ? 'center' : 'left'}
+            textAlign={{lg:'left',sm:'center',xs:'center',md:'left'}}
             sx={{
-             ml:{lg:3,md:3,sx:1,xs:-1},
+             ml:{lg:-8,md:3,sx:1,xs:-1},
               
               mb: isLaptop || isComputer ? 15 : 0,
               zIndex: 2,
-              mt:{ xs:3,md:-5,lg:15,sm:10}
+              mt:{ xs:3,md:5,lg:15,sm:10}
             }}
           >
-           
+           <Box ml={0.5}>
             <Typography
               variant="h3"
               sx={{
@@ -203,7 +212,7 @@ const Herosection = () => {
             >
               Ganesh Prabhu
             </Typography>
-            <Typography
+            <Typography ml={0.5}
               variant="h4"
               fontWeight={600}
               sx={{
@@ -218,11 +227,12 @@ const Herosection = () => {
             >
               Arivanantham
             </Typography>
+            </Box>
             <Typography
               sx={{
                 mt: 4,
                 mb: 3,
-                maxWidth: {lg:400,xs:250},
+                maxWidth: {lg:400,xs:250,sm:400},
                 fontWeight: 400,
                 ml:{xs:1},
                 fontSize: isPhone
@@ -238,7 +248,7 @@ const Herosection = () => {
               sx={{
                 mt: 3,
                 mb: 3,
-                maxWidth: {lg:300,xs:250},
+                maxWidth: {lg:400,xs:250,sm:400},
                 ml:{xs:1},
                 fontSize: isPhone
                   ? '1rem'

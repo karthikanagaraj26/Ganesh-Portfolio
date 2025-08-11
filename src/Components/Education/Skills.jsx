@@ -85,6 +85,7 @@ const SkillSection = () => {
             sx={{
               textAlign: { xs: "center", md: "left" },
               pl: { xs: 0, sm: 2 ,lg:7},
+             
             }}
           >
             <Typography
@@ -96,7 +97,7 @@ const SkillSection = () => {
               SKILLS
             </Typography>
 
-        <Box
+        <Box  data-aos="fade-up"
     sx={{
       display: "inline-block",
       width: "50px",

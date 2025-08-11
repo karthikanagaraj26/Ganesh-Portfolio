@@ -2,7 +2,8 @@ import React from 'react'
 import Herosection from '../Components/Home/Herosection'
 import Header from '../Components/Header'
 import About from '../Components/Home/About'
-import Footer from '../Components/Footer'
+
+import FooterSection from '../Components/Footer'
 function Home() {
   return (
     <div>
@@ -14,7 +15,9 @@ function Home() {
       <About/>
       </div>
       <div id="education" >
-      <Footer/>
+        
+      <FooterSection />
+      
       </div>
     </div>
   )

@@ -3,7 +3,8 @@ import EducationSection from '../Components/Education/Education'
 import Organisation from '../Components/Education/Organisation'
 import SkillSection from '../Components/Education/Skills'
 import Header from '../Components/Header'
-import Footer from '../Components/Footer'
+
+import FooterSection from '../Components/Footer'
 
 function Education() {
   return (
@@ -12,7 +13,9 @@ function Education() {
       <EducationSection/>
       <SkillSection/>
       <Organisation/>
-      <Footer/>
+     
+      <FooterSection />
+     
 
     </div>
   )

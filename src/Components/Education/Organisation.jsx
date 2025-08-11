@@ -36,7 +36,7 @@ const organisations = [
 
 const Organisation = () => {
   return (
-    <Box
+    <Box data-aos="fade-up"
       sx={{
         py: 8,
         px: 3,
@@ -44,7 +44,7 @@ const Organisation = () => {
         position: "relative",
         overflow: "hidden",
         marginBottom: 10,
-        marginTop: 5,
+        marginTop: {lg:5,md:-10},
       }}
     >
       {/* Yellow Circle — Top Left */}
@@ -76,7 +76,7 @@ const Organisation = () => {
       />
 
       {/* Center Decorative Image (Black) */}
-      <Box
+      <Box 
         component="img"
         src={blackDecorativeImage}
         alt="Decorative Center"
@@ -87,7 +87,7 @@ const Organisation = () => {
          
           width: { xs: "60px", md: "80px",lg:'200px' },
           opacity: 1,
-          zIndex: 0,
+          zIndex: 0, 
         }}
       />
 

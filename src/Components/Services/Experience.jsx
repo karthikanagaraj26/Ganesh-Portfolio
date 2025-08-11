@@ -107,7 +107,7 @@ const ExperienceSection = () => {
   };
 
   return (
-    <Box
+    <Box data-aos="fade-down"
       sx={{
         py: isXs ? 4 : 8,
         px: isXs ? 2 : 3,
@@ -148,7 +148,7 @@ const ExperienceSection = () => {
       />
 
       {/* Decorative Right Image */}
-      <Box
+      <Box 
         component="img"
         src={rightDecorImage}
         alt="Decorative Right"
@@ -201,7 +201,7 @@ const ExperienceSection = () => {
         spacing={isXs ? 3 : 4}
         justifyContent="center"
         alignItems="stretch"
-        sx={{ mt: isXs ? 2 : 5, zIndex: 1, position: "relative" }}
+        sx={{ mt: isXs ? 2 : 5, zIndex: 1, position: "relative"}}
       >
         {experiences.map((exp, index) => (
           <Grid
@@ -211,7 +211,7 @@ const ExperienceSection = () => {
             sm={6}
             md={4}
             lg={4}
-            sx={{ display: "flex", justifyContent: "center", height: "100%",ml:{xs:-21.5,lg:2,md:2,sm:0} }}
+            sx={{ display: "flex", justifyContent: "center", height: "100%",ml:{lg:2,md:2,sm:0} }}
           >
             <motion.div
               custom={index}
@@ -223,11 +223,11 @@ const ExperienceSection = () => {
                 scale: 1.03,
                 transition: { duration: 1.0 },
               }}
-              style={{
-                width: isXs ? "40%" : isSm ? "100%" : 300,
-                height: "100%",
+              // style={{
+              //   width: isXs ? "100%" : isSm ? "100%" : 300,
+              //   height: "100%",
                 
-              }}
+              // }}
             >
               <Box
                 sx={{
@@ -240,7 +240,7 @@ const ExperienceSection = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   height: {sm:'300px',xs:'250px'},
-                  width:{sm:'300px',xs:'250px',lg:'250px'},
+                  width:{sm:'250px',lg:'250px',md:'250px',xs:'200px'},
                   
                 }}
               >

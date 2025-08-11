@@ -111,7 +111,7 @@ const Section = () => {
         zIndex: 2,
       }}
     >
-      <Grid item xs={12} md={10} lg={10}>
+      <Grid item xs={12} md={10} lg={10} data-aos="fade-up">
         {/* Heading */}
         <Typography
           variant="h4"

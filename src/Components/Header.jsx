@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -20,15 +21,14 @@ function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    AOS.init({ duration: 200, once: true });
+    AOS.init({  once: true });
   }, []);
 
   const menuItems = [
-    { label: 'Home', to: '/' },
-    
-    { label: 'Services', to: '/services' },
-    { label: 'Education', to: '/education' },
-    
+    { label: 'Home', to: '/', type: 'route' },
+    { label: 'Services', to: '/services', type: 'route' },
+    { label: 'Education', to: '/education', type: 'route' },
+    { label: 'Contact', to: '/contact',type:'route'}, 
   ];
 
   return (
@@ -57,28 +57,55 @@ function Navbar() {
               alignItems: 'center',
             }}
           >
-            {menuItems.map((item, index) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                style={{ textDecoration: 'none', }}
-              >
-                <Typography
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 300}
-                  sx={{
-                    px: { md: 1, lg: 1.5, xl: 2 },
-                    fontSize: { md: '0.9rem', lg: '1rem', xl: '1.1rem' },
-                    fontWeight: 'normal',
-                    color: location.pathname === item.to ? 'blue' : '#000',
-                    transition: 'color 0.3s',
-                    '&:hover': { color: 'blue' },
-                  }}
+            {menuItems.map((item, index) =>
+              item.type === 'route' ? (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  style={{ textDecoration: 'none' }}
                 >
-                  {item.label}
-                </Typography>
-              </Link>
-            ))}
+                  <Typography
+                    data-aos="zoom-in"
+                    data-aos-delay={index * 100}
+                    sx={{
+                      px: { md: 1, lg: 1.5, xl: 2 },
+                      fontSize: { md: '0.9rem', lg: '1rem', xl: '1.1rem' },
+                      fontWeight: 'normal',
+                      color:
+                        location.pathname === item.to ? 'blue' : '#000',
+                      transition: 'color 0.3s',
+                      '&:hover': { color: 'blue' },
+                    }}
+                  >
+                    {item.label}
+                  </Typography>
+                </Link>
+              ) : (
+                <ScrollLink
+                  key={item.to}
+                  to={item.to}
+                  smooth={true}
+                  duration={600}
+                  offset={-70}
+                  style={{ textDecoration: 'none', cursor: 'pointer' }}
+                >
+                  <Typography
+                    data-aos="zoom-in"
+                   
+                    sx={{
+                      px: { md: 1, lg: 1.5, xl: 2 },
+                      fontSize: { md: '0.9rem', lg: '1rem', xl: '1.1rem' },
+                      fontWeight: 'normal',
+                      color: '#000',
+                      transition: 'color 0.3s',
+                      '&:hover': { color: 'blue' },
+                    }}
+                  >
+                    {item.label}
+                  </Typography>
+                </ScrollLink>
+              )
+            )}
           </Box>
 
           {/* Hamburger Icon */}
@@ -104,32 +131,47 @@ function Navbar() {
         onClose={() => setDrawerOpen(false)}
       >
         <Box sx={{ width: 240, pt: 6 }} role="presentation">
-
           <List>
             {menuItems.map((item, index) => (
               <ListItemButton
                 key={item.to}
-                component={Link}
-                to={item.to}
-                onClick={() => setDrawerOpen(false)}
+                component={item.type === 'route' ? Link : 'div'}
+                to={item.type === 'route' ? item.to : undefined}
+                onClick={() => {
+                  setDrawerOpen(false);
+                  if (item.type === 'scroll') {
+                    document
+                      .getElementById(item.to)
+                      ?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                sx={{
+                  '&:hover .nav-text': {
+                    color: 'blue',
+                  },
+                }}
               >
                 <ListItemText
-                  primary={item.label}
-                  primaryTypographyProps={{
-                    sx: {
-                      fontWeight: 'normal',
-                      fontSize: '1rem',
-                      color:
-                        location.pathname === item.to
-                          ? 'blue'
-                          : 'text.secondary',
-                      '&:hover': {
-                        color: 'blue',
-                      },
-                    },
-                    'data-aos': 'zoom-in',
-                    'data-aos-delay': index * 300,
-                  }}
+                  disableTypography
+                  primary={
+                    <Typography
+                      className="nav-text"
+                      data-aos="zoom-in"
+                      
+                      sx={{
+                        fontWeight: 'normal',
+                        fontSize: '1rem',
+                        color:
+                          item.type === 'route' &&
+                          location.pathname === item.to
+                            ? 'blue'
+                            : 'text.secondary',
+                        transition: 'color 0.3s',
+                      }}
+                    >
+                      {item.label}
+                    </Typography>
+                  }
                 />
               </ListItemButton>
             ))}
